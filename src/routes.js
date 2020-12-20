@@ -9,11 +9,11 @@ const router = createRouter({
     base: "/3dviewer",
     routes: [
         {
-            path: "/",
+            path: "/3dviewer/",
             component: Home
         },
         {
-            path: "/viewer",
+            path: "/3dviewer/viewer",
             component: Viewer
         }
     ]
