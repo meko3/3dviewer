@@ -1,2 +1,2 @@
 # 3dViewer
-(DEMO)[https://meko3.github.io/3dviewer]
+[DEMO](https://meko3.github.io/3dviewer)
