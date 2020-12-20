@@ -16,11 +16,9 @@ export default {
   mounted() {
     const renderer = this.$refs.renderer;
     const box = this.$refs.box.mesh;
-    if (renderer) {
-      renderer.onBeforeRender(() => {
-        box.rotation.x += 0.01;
-      });
-    }
+    renderer.onBeforeRender(() => {
+      box.rotation.x += 0.01;
+    });
   }
 }
 </script>
