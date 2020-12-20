@@ -1,14 +1,29 @@
 <template>
-    <Object />
+    <div class="card-list">
+        <Card />
+    </div>
 </template>
 
 <script lang="ts">
-import Object from '../components/Object.vue';
-
+import Card from "../components/Card.vue";
 export default {
     name: "Home",
     components: {
-        Object,
+        Card,
     }
 }
 </script>
+
+<style lang="scss">
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+@media screen and (max-width: 768px) {
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+</style>

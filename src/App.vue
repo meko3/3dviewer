@@ -3,7 +3,9 @@
     <div id="header">
         <router-link to="/">Home</router-link>
     </div>
-    <router-view />
+    <div id="body">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -21,6 +23,12 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    background: #eee;
+    background: #fff;
+    a {
+      text-decoration: none;
+    }
+}
+#body {
+  margin-top: 3vh;
 }
 </style>
