@@ -918,6 +918,11 @@
   "resolved" "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz"
   "version" "4.2.4"
 
+"gsap@^3.5.1":
+  "integrity" "sha512-EMV0RSUKZNeTUzLKAizGlwxVOUyif3/g8I3S1aA/hf3gbqwBvmQ02x1RdTBQNQMOpHCVBv9y/vaHwfctoAg8zw=="
+  "resolved" "https://registry.npmjs.org/gsap/-/gsap-3.5.1.tgz"
+  "version" "3.5.1"
+
 "has-flag@^3.0.0":
   "integrity" "sha1-tdRU3CGZriJWmfNGfloH87lVuv0="
   "resolved" "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz"
@@ -1946,6 +1951,11 @@
     "source-map" "~0.7.2"
     "source-map-support" "~0.5.19"
 
+"three@^0.120":
+  "integrity" "sha512-ktaCRFUR7JUZcKec+cBRz+oBex5pOVaJhrtxvFF2T7on53o9UkEux+/Nh1g/4zeb4t/pbxIFcADbn/ACu3LC1g=="
+  "resolved" "https://registry.npmjs.org/three/-/three-0.120.1.tgz"
+  "version" "0.120.1"
+
 "to-fast-properties@^2.0.0":
   "integrity" "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4="
   "resolved" "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz"
@@ -1962,6 +1972,14 @@
   "integrity" "sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw=="
   "resolved" "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz"
   "version" "1.0.0"
+
+"troisjs@^0.1.0":
+  "integrity" "sha512-an2QXwQbjf4JjZlAEtxDn//7+o3kWHwVQ1OxGnZOyaHawAaVvC7D6pwz2NVHSYG39qhXt7vsap5W4JN0cQt8GA=="
+  "resolved" "https://registry.npmjs.org/troisjs/-/troisjs-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "gsap" "^3.5.1"
+    "three" "^0.120"
 
 "tsscmp@1.0.6":
   "integrity" "sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA=="
