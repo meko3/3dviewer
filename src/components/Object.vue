@@ -1,4 +1,5 @@
 <template>
+  <Pointer @lon="onLon" @lat="onLat" />
   <Renderer ref="renderer">
     <Camera :position="{ z: 10 }" />
     <Scene>
@@ -11,14 +12,34 @@
 </template>
 
 <script lang="ts">
+import Pointer from "../components/Pointer.vue";
 export default {
-  name: 'Three',
+  name: 'Object',
+  data() {
+    const lon = 0;
+    const lat = 0;
+    return { lon, lat };
+  },
+  methods: {
+    onLon(event) {
+      // console.log("lon", event);
+      this.lon = event;
+    },
+    onLat(event) {
+      // console.log("lat", event);
+      this.lat = event;
+    },
+  },
   mounted() {
     const renderer = this.$refs.renderer;
     const box = this.$refs.box.mesh;
     renderer.onBeforeRender(() => {
-      box.rotation.x += 0.01;
+      box.rotation.x += this.lat;
+      box.rotation.y += this.lon;
     });
+  },
+  components: {
+    Pointer,
   }
 }
 </script>

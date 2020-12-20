@@ -1,14 +1,14 @@
 <template>
-  <Three />
+  <Object />
 </template>
 
 <script>
-import Three from './components/Three.vue'
+import Object from './components/Object.vue'
 
 export default {
   name: 'App',
   components: {
-    Three
+    Object
   }
 }
 </script>
