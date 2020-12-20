@@ -5,7 +5,7 @@ import Viewer from "./views/Viewer.vue";
 
 const router = createRouter({
     history: createWebHistory(),
-    base: process.env.BASE_URL,
+    base: import.meta.env.BASE_URL,
     routes: [
         {
             path: "/",
