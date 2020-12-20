@@ -1,5 +1,5 @@
 {
     "models": [
-        { "name": "saxophone", "dir": "sax", "file": "sax.fbx", "thumbnail": "sax.png" }
+        { "id": "1", "name": "saxophone", "dir": "sax", "file": "sax.fbx", "thumbnail": "sax.png" }
     ]
 }

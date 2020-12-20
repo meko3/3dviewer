@@ -2,11 +2,9 @@
   <Pointer @lon="onLon" @lat="onLat" />
   <Renderer ref="renderer">
     <Camera :position="{ z: 10 }" />
-    <Scene ref="scene">
+    <Scene>
       <PointLight :position="{ y: 50, z: 50 }" />
-      <Box ref="box" :size="1" :rotation="{ y: Math.PI / 4, z: Math.PI / 4 }">
-        <LambertMaterial />
-      </Box>
+        <slot />
     </Scene>
   </Renderer>
 </template>
@@ -14,6 +12,7 @@
 <script lang="ts">
 import Pointer from "../components/Pointer.vue";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import { Vector3 } from "three";
 export default {
   name: 'Fbx',
   props: ["dir", "name"],
@@ -29,19 +28,18 @@ export default {
     onLat(event) {
       this.lat = event;
     },
-    loadObject() {
-      const loader = new FBXLoader();
-      loader.load(`~/models/${this.dir}/${this.name}.fbx`, (object) => {
-        this.$refs.scene.add(object);
-      });
-    }
   },
-  mounted() {
+  updated() {
     const renderer = this.$refs.renderer;
-    const box = this.$refs.box.mesh;
-    renderer.onBeforeRender(() => {
-      box.rotation.x += this.lat;
-      box.rotation.y += this.lon;
+    const loader = new FBXLoader();
+    loader.load(`models/${this.dir}/${this.name}`, (object) => {
+      object.scale.set(0.05, 0.05, 0.05);
+      renderer.three.scene.add(object);
+      console.log(object);
+      renderer.onBeforeRender(() => {
+        object.rotation.x += this.lat;
+        object.rotation.y += this.lon;
+      });
     });
   },
   components: {

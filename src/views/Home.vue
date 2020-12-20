@@ -1,8 +1,8 @@
 <template>
     <div class="home">
         <div class="card-list">
-            <Card v-for="model in models" :key="model.name">
-                <router-link :to="'/viewer?='+model.name">
+            <Card v-for="model in models" :key="model.id">
+                <router-link :to="'/viewer?id='+model.id">
                     <p>{{model.name}}</p>
                     <div class="image">
                         <img :src="'models/'+model.dir+'/'+model.thumbnail" />
