@@ -22,11 +22,9 @@ export default {
   },
   methods: {
     onLon(event) {
-      // console.log("lon", event);
       this.lon = event;
     },
     onLat(event) {
-      // console.log("lat", event);
       this.lat = event;
     },
   },
