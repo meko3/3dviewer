@@ -1,14 +1,26 @@
 <template>
-  <Object />
+  <div>
+    <div id="header">
+        <router-link to="/">Home</router-link>
+    </div>
+    <router-view />
+  </div>
 </template>
 
 <script>
-import Object from './components/Object.vue'
-
 export default {
   name: 'App',
-  components: {
-    Object
-  }
 }
 </script>
+
+<style lang="scss">
+#header {
+    height: 12vh;
+    box-shadow: 1px 1px 1px gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #eee;
+}
+</style>
