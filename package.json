@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --outDir docs --base=/${name}/ --ssr"
+    "build": "vite build --outDir docs --base=/${name}/"
   },
   "dependencies": {
     "troisjs": "^0.1.0",
