@@ -2,7 +2,7 @@
     <div class="card-list">
         <Card v-for="model in models" :key="model.name">
             <p>{{model.name}}</p>
-            <img :src="'models/'+model.dir+'/'+model.thumbnail+'.png'">
+            <img :src="'models/'+model.dir+'/'+model.thumbnail">
             <Fbx :dir="model.dir" :name="model.file" />
         </Card>
     </div>
