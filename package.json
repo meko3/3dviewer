@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --outDir docs --base=/${name}/"
+    "build": "vite build --outDir docs --base=/3dviewer/",
+    "test": "${name}"
   },
   "dependencies": {
     "troisjs": "^0.1.0",
