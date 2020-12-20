@@ -1,16 +1,24 @@
 <template>
     <div class="card-list">
-        <Card />
+        <Card v-for="model in models" :key="model.name">
+            <p>{{model.name}}</p>
+            <img :src="'models/'+model.dir+'/'+model.thumbnail+'.png'">
+            <Fbx :dir="model.dir" :name="model.file" />
+        </Card>
     </div>
 </template>
 
 <script lang="ts">
 import Card from "../components/Card.vue";
+import modelJson from "../assets/models.json";
 export default {
     name: "Home",
+    data() {
+        return { models: modelJson.models };
+    },
     components: {
         Card,
-    }
+    },
 }
 </script>
 

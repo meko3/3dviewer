@@ -1,0 +1,5 @@
+{
+    "models": [
+        { "name": "saxophone", "dir": "sax", "file": "sax.fbx", "thumbnail": "sax.png" }
+    ]
+}
