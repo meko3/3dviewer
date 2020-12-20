@@ -1,10 +1,15 @@
 <template>
-    <div class="card-list">
-        <Card v-for="model in models" :key="model.name">
-            <p>{{model.name}}</p>
-            <img :src="'models/'+model.dir+'/'+model.thumbnail">
-            <Fbx :dir="model.dir" :name="model.file" />
-        </Card>
+    <div class="home">
+        <div class="card-list">
+            <Card v-for="model in models" :key="model.name">
+                <router-link :to="'/viewer?='+model.name">
+                    <p>{{model.name}}</p>
+                    <div class="image">
+                        <img :src="'models/'+model.dir+'/'+model.thumbnail" />
+                    </div>
+                </router-link>
+            </Card>
+        </div>
     </div>
 </template>
 
@@ -23,6 +28,9 @@ export default {
 </script>
 
 <style lang="scss">
+.home {
+  margin-top: 3vh;
+}
 .card-list {
     display: flex;
     flex-wrap: wrap;
@@ -32,6 +40,14 @@ export default {
     .card-list {
         display: flex;
         flex-wrap: wrap;
+        .image img {
+            width: 100%;
+            max-width: 360px;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
     }
 }
 </style>

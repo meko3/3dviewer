@@ -29,6 +29,6 @@ export default {
     }
 }
 #body {
-  margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 </style>

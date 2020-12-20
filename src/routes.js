@@ -5,15 +5,14 @@ import Viewer from "./views/Viewer.vue";
 
 const router = createRouter({
     history: createWebHistory(),
-    // base: import.meta.env.BASE_URL,
-    base: "/3dviewer",
+    base: process.env.BASE_URL,
     routes: [
         {
-            path: "/3dviewer/",
+            path: "/",
             component: Home
         },
         {
-            path: "/3dviewer/viewer",
+            path: "/viewer",
             component: Viewer
         }
     ]
