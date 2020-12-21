@@ -9,17 +9,21 @@
   </Renderer>
 </template>
 
-<script lang="ts">
+<script>
 import Pointer from "../components/Pointer.vue";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { Vector3 } from "three";
+import { Vector3, Group } from "three";
+import { toRaw } from 'vue';
 export default {
   name: 'Fbx',
-  props: ["dir", "name"],
+  props: ["dir", "name", "size"],
   data() {
     const lon = 0;
     const lat = 0;
-    return { lon, lat };
+    const per = 0.05;
+    const scale = 1;
+    let group = new Group();
+    return { lon, lat, group, per, scale };
   },
   methods: {
     onLon(event) {
@@ -29,15 +33,23 @@ export default {
       this.lat = event;
     },
   },
+  watch: {
+    size: function(newVal, oldVal) {
+      if (!isNaN(newVal)) {
+        this.scale = newVal;
+      }
+    }
+  },
   updated() {
     const renderer = this.$refs.renderer;
     const loader = new FBXLoader();
     loader.load(`models/${this.dir}/${this.name}`, (object) => {
-      object.scale.set(0.05, 0.05, 0.05);
-      renderer.three.scene.add(object);
+      this.group.add(object);
+      renderer.three.scene.add(toRaw(this.group));
       renderer.onBeforeRender(() => {
-        object.rotation.x += this.lat;
-        object.rotation.y += this.lon;
+        this.group.rotation.x += this.lat;
+        this.group.rotation.y += this.lon;
+        this.group.scale.set(this.scale * this.per, this.scale * this.per, this.scale * this.per);
       });
     });
   },

@@ -1,5 +1,7 @@
 <template>
-    <Fbx :dir="this.dir" :name="this.name" />
+    <input id="size-adjuster" name="size-adjuster" type="range" max="1.0" min="0.1" step="0.1" />
+    <div>{{this.size}}</div>
+    <Fbx :dir="this.dir" :name="this.name" :size="this.size" />
 </template>
 
 <script lang="ts">
@@ -11,7 +13,8 @@ export default {
     data() {
         return {
             dir: "",
-            name: ""
+            name: "",
+            size: 1
         };
     },
     components: {
@@ -26,6 +29,15 @@ export default {
                 }
             });
         }
+        document.getElementById("size-adjuster")?.addEventListener("change", (event: Event) => {
+            this.size = event.target?.value;
+        });
     }
 }
 </script>
+
+<style>
+#size-adjuster {
+    touch-action: none;
+}
+</style>
