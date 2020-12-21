@@ -1,7 +1,9 @@
 <template>
-    <input id="size-adjuster" name="size-adjuster" type="range" max="1.0" min="0.1" step="0.1" />
-    <div>{{this.size}}</div>
-    <Fbx :dir="this.dir" :name="this.name" :size="this.size" />
+    <div id='viewer'>
+        <input id="size-adjuster" name="size-adjuster" type="range" max="1.0" min="0.1" step="0.1" />
+        <div>{{this.size}}</div>
+        <Fbx :dir="this.dir" :name="this.name" :size="this.size" />
+    </div>
 </template>
 
 <script lang="ts">
@@ -14,7 +16,7 @@ export default {
         return {
             dir: "",
             name: "",
-            size: 1
+            size: 0.5
         };
     },
     components: {
@@ -23,7 +25,7 @@ export default {
     mounted() {
         if (modelJson) {
             modelJson.models.forEach((object) => {
-                if (object.id = this.$route.query.id) {
+                if (object.id === this.$route.query.id) {
                     this.dir = object.dir;
                     this.name = object.file;
                 }

@@ -1,5 +1,9 @@
 {
     "models": [
-        { "id": "1", "name": "saxophone", "dir": "sax", "file": "sax.fbx", "thumbnail": "sax.png" }
+        { "id": "1", "name": "saxophone", "dir": "sax", "file": "sax.fbx", "thumbnail": "sax.png" },
+        { "id": "2", "name": "violin", "dir": "violin", "file": "violin.fbx", "thumbnail": "violin.png" },
+        { "id": "3", "name": "piano", "dir": "piano", "file": "piano.fbx", "thumbnail": "piano.png" },
+        { "id": "4", "name": "harp", "dir": "harp", "file": "harp.fbx", "thumbnail": "harp.png" },
+        { "id": "999", "name": "butterfly", "dir": "butterfly", "file": "butterfly.fbx", "thumbnail": "butterfly.png" }
     ]
 }

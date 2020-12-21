@@ -31,6 +31,5 @@ export default {
 }
 #body {
   margin-bottom: 3vh;
-  touch-action: none;
 }
 </style>

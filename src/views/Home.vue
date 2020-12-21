@@ -35,15 +35,15 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    .image img {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 @media screen and (max-width: 768px) {
     .card-list {
         display: flex;
         flex-wrap: wrap;
-        .image img {
-            width: 100%;
-            max-width: 360px;
-        }
         a {
             text-decoration: none;
             color: #333;
