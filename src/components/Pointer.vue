@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         initEventListener() {
-            document.addEventListener(this.EVENT.TOUCH_START, this.onDocumentMouseDown, false);
+            this.$parent?.$el.addEventListener(this.EVENT.TOUCH_START, this.onDocumentMouseDown, false);
         },
         onDocumentMouseDown(event: MouseEvent | TouchEvent) {
             event.preventDefault();
@@ -43,12 +43,13 @@ export default {
                 } else {
                     this.onMouseDownMouseX = event.changedTouches[0].clientX;
                     this.onMouseDownMouseY = event.changedTouches[0].clientY;
+                    this.$parent?.$el.getElementById("header")?.setAttribute("style", "background: #F0C93F");
                 }
             }
             this.onMouseDownLon = this.lon;
             this.onMouseDownLat = this.lat;
-            document.addEventListener(this.EVENT.TOUCH_MOVE, this.onDocumentMouseMove, false);
-            document.addEventListener(this.EVENT.TOUCH_END, this.onDocumentMouseUp, false);
+            this.$parent?.$el.addEventListener(this.EVENT.TOUCH_MOVE, this.onDocumentMouseMove, false);
+            this.$parent?.$el.addEventListener(this.EVENT.TOUCH_END, this.onDocumentMouseUp, false);
         },
         onDocumentMouseMove(event: MouseEvent | TouchEvent) {
             event.preventDefault();
@@ -73,8 +74,8 @@ export default {
             }
         },
         onDocumentMouseUp(event: MouseEvent | TouchEvent) {
-            document.removeEventListener(this.EVENT.TOUCH_MOVE, this.onDocumentMouseMove, false);
-            document.removeEventListener(this.EVENT.TOUCH_END, this.onDocumentMouseUp, false);
+            this.$parent?.$el.removeEventListener(this.EVENT.TOUCH_MOVE, this.onDocumentMouseMove, false);
+            this.$parent?.$el.removeEventListener(this.EVENT.TOUCH_END, this.onDocumentMouseUp, false);
             this.lon = 0;
             this.lat = 0;
             if (!isNaN(this.lon) && !isNaN(this.lat)) {

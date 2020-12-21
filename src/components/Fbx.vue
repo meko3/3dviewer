@@ -1,8 +1,8 @@
 <template>
-  <Pointer @lon="onLon" @lat="onLat" />
   <Renderer ref="renderer">
+    <Pointer @lon="onLon" @lat="onLat" />
     <Camera :position="{ z: 10 }" />
-    <Scene>
+    <Scene id="scene">
       <PointLight :position="{ y: 50, z: 50 }" />
         <slot />
     </Scene>
@@ -35,7 +35,6 @@ export default {
     loader.load(`models/${this.dir}/${this.name}`, (object) => {
       object.scale.set(0.05, 0.05, 0.05);
       renderer.three.scene.add(object);
-      console.log(object);
       renderer.onBeforeRender(() => {
         object.rotation.x += this.lat;
         object.rotation.y += this.lon;
@@ -47,3 +46,10 @@ export default {
   }
 }
 </script>
+
+
+<style>
+/* #scene {
+  touch-action: pinch-zoom;
+} */
+</style>

@@ -27,8 +27,10 @@ export default {
     a {
       text-decoration: none;
     }
+  touch-action: none;
 }
 #body {
   margin-bottom: 3vh;
+  touch-action: none;
 }
 </style>
