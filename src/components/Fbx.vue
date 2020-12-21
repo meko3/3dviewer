@@ -2,19 +2,20 @@
   <Renderer ref="renderer" id="renderer">
     <Pointer @lon="onLon" @lat="onLat" />
     <Camera :position="{ z: 10 }" />
-    <Scene id="scene">
-      <PointLight :position="{ y: 200, x: 200, z: 100 }"  />
-      <PointLight :position="{ y: 200, x: -200, z: 100 }"  />
-      <PointLight :position="{ y: -100, x: 100, z: 100 }"  />
+    <Scene id="scene" background="#444444">
+      <AmbientLight color="#eeeeee" :intensity="1.0" />
+      <SpotLight :position="{ x: 100, y: 100, z: 100 }" :angle="Math.PI/2" color="#ffffff" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
+      <SpotLight :position="{ x: -100, y: 100, z: -100 }" :angle="Math.PI/2" color="#ffffff" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
+      <SpotLight :position="{ x: -100, y: 0, z: 0 }" :angle="Math.PI/2" color="#ffffff" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
         <slot />
     </Scene>
   </Renderer>
 </template>
 
-<script>
+<script lang="ts">
 import Pointer from "../components/Pointer.vue";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { Vector3, Group, Color } from "three";
+import { Vector3, Group, Color, MeshBasicMaterial, Mesh } from "three";
 import { toRaw } from 'vue';
 export default {
   name: 'Fbx',
@@ -43,17 +44,19 @@ export default {
     }
   },
   updated() {
-    const renderer = this.$refs.renderer;
-    renderer.three.scene.background = new Color( 0x444444 );
-    const loader = new FBXLoader();
-    loader.load(`models/${this.dir}/${this.name}`, (object) => {
-      this.group.add(object);
-      renderer.three.scene.add(toRaw(this.group));
-      renderer.onBeforeRender(() => {
-        this.group.rotation.x += this.lat;
-        this.group.rotation.y += this.lon;
-        this.group.scale.set(this.scale * this.per, this.scale * this.per, this.scale * this.per);
+    if(this.group.children.length <= 0){ 
+      const loader = new FBXLoader();
+      loader.load(`models/${this.dir}/${this.name}`, (object) => {
+        this.group.add(object);
+        this.$refs.renderer.three.scene.add(toRaw(this.group));
       });
+    }
+  },
+  mounted() {
+    this.$refs.renderer.onBeforeRender(() => {
+      this.group.rotation.x += this.lat;
+      this.group.rotation.y += this.lon;
+      this.group.scale.set(this.scale * this.per, this.scale * this.per, this.scale * this.per);
     });
   },
   components: {

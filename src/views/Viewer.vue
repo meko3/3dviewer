@@ -1,7 +1,9 @@
 <template>
     <div id='viewer'>
-        <input id="size-adjuster" name="size-adjuster" type="range" max="1.0" min="0.1" step="0.1" />
-        <div>{{this.size}}</div>
+        <div class="control">
+            <input id="size-adjuster" name="size-adjuster" type="range" max="1.0" min="0.1" step="0.1" placeholder="0.5" />
+            <div>{{this.size}}</div>
+        </div>
         <Fbx :dir="this.dir" :name="this.name" :size="this.size" />
     </div>
 </template>
@@ -38,8 +40,14 @@ export default {
 }
 </script>
 
-<style>
-#size-adjuster {
-    touch-action: none;
+<style lang="scss">
+.control {
+    padding-top: 1rem;
+    position: fixed;
+    width: 100%;
+    #size-adjuster {
+        width: 200px;
+        touch-action: none;
+    }
 }
 </style>

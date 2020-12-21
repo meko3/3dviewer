@@ -4,6 +4,8 @@
         { "id": "2", "name": "violin", "dir": "violin", "file": "violin.fbx", "thumbnail": "violin.png" },
         { "id": "3", "name": "piano", "dir": "piano", "file": "piano.fbx", "thumbnail": "piano.png" },
         { "id": "4", "name": "harp", "dir": "harp", "file": "harp.fbx", "thumbnail": "harp.png" },
+        { "id": "10", "name": "cap", "dir": "cap", "file": "cap.fbx", "thumbnail": "cap.png" },
+        { "id": "11", "name": "jacket", "dir": "jacket", "file": "jacket.fbx", "thumbnail": "hoodie.png" },
         { "id": "999", "name": "butterfly", "dir": "butterfly", "file": "butterfly.fbx", "thumbnail": "butterfly.png" }
     ]
 }

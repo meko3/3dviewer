@@ -1,6 +1,6 @@
 {
   "name": "3dviewer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "dev": "vite --config vite.config.js",
     "build": "vite build --config vite.config.js"
