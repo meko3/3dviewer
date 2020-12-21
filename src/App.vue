@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div id="header">
-        <router-link to="/">Home</router-link>
-    </div>
     <div id="body">
       <router-view />
     </div>
@@ -28,8 +25,5 @@ export default {
       text-decoration: none;
     }
   touch-action: none;
-}
-#body {
-  margin-bottom: 3vh;
 }
 </style>

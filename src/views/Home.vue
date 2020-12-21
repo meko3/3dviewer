@@ -1,5 +1,8 @@
 <template>
     <div class="home">
+        <div id="header">
+            <router-link to="/">Home</router-link>
+        </div>
         <div class="card-list">
             <Card v-for="model in models" :key="model.id">
                 <router-link :to="'/viewer?id='+model.id">
@@ -30,6 +33,7 @@ export default {
 <style lang="scss">
 .home {
   margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 .card-list {
     display: flex;
