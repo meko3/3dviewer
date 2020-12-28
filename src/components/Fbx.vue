@@ -4,9 +4,9 @@
     <Camera :position="{ z: 10 }" />
     <Scene id="scene" background="#444444">
       <AmbientLight color="#eeeeee" :intensity="1.0" />
-      <SpotLight :position="{ x: 100, y: 100, z: 100 }" :angle="Math.PI/2" color="#ffffff" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
-      <SpotLight :position="{ x: -100, y: 100, z: -100 }" :angle="Math.PI/2" color="#ffffff" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
-      <SpotLight :position="{ x: -100, y: 0, z: 0 }" :angle="Math.PI/2" color="#ffffff" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
+      <SpotLight :position="{ x: 50, y: 50, z: 0 }" :angle="Math.PI/2" color="#eeeeee" :intensity="1.0" :shadowMapSize="{width: 524, height: 524}" />
+      <SpotLight :position="{ x: -50, y: 50, z: -50 }" color="#dddddd" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
+      <PointLight :position="{ x: -100, y: 0, z: 0 }" color="#999999" :intensity="1.0" :shadowMapSize="{width: 1024, height: 1024}" />
         <slot />
     </Scene>
   </Renderer>
